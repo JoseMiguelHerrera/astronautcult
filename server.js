@@ -33,17 +33,7 @@ app.post("/api/visitors", function (request, response) {
   });
 });
 
-/**
- * Endpoint to get a JSON array of all the visitors in the database
- * REST API example:
- * <code>
- * GET http://localhost:3000/api/visitors
- * </code>
- *
- * Response:
- * [ "Bob", "Jane" ]
- * @return An array of all the visitor names
- */
+
 app.get("/api/visitors", function (request, response) {
   var names = [];
   if(!mydb) {
@@ -97,6 +87,7 @@ if (appEnv.services['cloudantNoSQLDB']) {
 //serve static file (index.html, images, css)
 app.use(express.static(__dirname + '/views'));
 
+app.use('/new', express.static(__dirname + '/views/newrelease') )
 
 
 var port = process.env.PORT || 3000
